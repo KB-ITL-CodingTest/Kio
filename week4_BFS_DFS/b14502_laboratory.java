@@ -41,7 +41,6 @@ public class b14502_laboratory {
                 for(int k=j+1;k<numEmpty;k++){
                     int x1 = empty[i][0], y1 = empty[i][1], x2 = empty[j][0], y2 = empty[j][1], x3 = empty[k][0], y3 = empty[k][1];
 
-                    if(map[x1][y1] != 0 || map[x2][y2] != 0 || map[x3][y3] != 0 ) continue;
                     map[x1][y1] = 1;
                     map[x2][y2] = 1;
                     map[x3][y3] = 1;
