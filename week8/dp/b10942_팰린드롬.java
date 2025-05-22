@@ -16,19 +16,23 @@ public class b10942_팰린드롬 {
         for(int i=1;i<=n;i++){
             arr[i] = Integer.parseInt(st.nextToken());
         }
-        // i에서 시작하는 j 길이가 팰린드롬인지 저장
+        // i~j가 팰린드롬인지 여부 저장
         boolean[][] dp = new boolean[n+1][n+1];
+        //길이가 1인 팰린드롬
         for(int i=1;i<=n;i++){
             dp[i][i] = true;
         }
+        //길이가 2인 팰린드롬
         for(int i=1;i<=n-1;i++){
             if(arr[i] == arr[i+1]) {
                 dp[i][i + 1] = true;
             }
         }
+        //길이가 3 이상인 팰린드롬
         for(int len=3;len<=n;len++){
             for(int start=1;start<=n-len+1;start++){
                 int end = start + len - 1;
+                // i+1~j-1까지가 팰린드롬이고 i와 j의 값이 같다면 팰린드롬
                 if(arr[start] == arr[end] && dp[start+1][end-1]){
                     dp[start][end] = true;
                 }
