@@ -19,22 +19,23 @@ public class b2792_보석상자 {
         }
         int left = 1;
         int right = max;
-        int ans = 0;
         while (left <= right) {
+            // 오버플로우 방지
             int mid = left + (right - left) / 2;
 
             int cnt = 0;
             for (int i = 0; i < m; i++) {
-                cnt += (gem[i] + mid - 1) / mid;  // 올림 처리
+                //i번째 보석을 mid개로 나누었을 때, 몇 명이 나누어 가질지 카운팅
+                cnt += (gem[i] + mid - 1) / mid;
             }
-
+            // n명 이하끼리 나누었다면 개수를 줄여야 한다.
+            // 최소값을 찾아야 하므로 n명이 나눴더라도 계속 진행함
             if (cnt <= n) {
-                ans = mid;        // 최소 불만도를 계속 갱신
                 right = mid - 1;
             } else {
                 left = mid + 1;
             }
         }
-        System.out.print(ans);
+        System.out.print(left);
     }
 }

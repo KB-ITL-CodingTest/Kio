@@ -43,6 +43,7 @@ public class b2473_세용액 {
         long min = Long.MAX_VALUE;
         long[] ans = new long[3];
         //binary search 풀이 O(N^2logN)
+        // 값 두개를 고정하고, 나머지 2개의 값 찾기
         for(int i=0;i<n;i++){
             for(int j=i+1;j<n-1;j++){
                 int k = binarySearch(arr[i] + arr[j], j+1, n-1);
@@ -56,6 +57,7 @@ public class b2473_세용액 {
             }
         }
         //two pointer 풀이 O(NlogN)
+        //하나의 값 고정후, 나머지 두개의 값 찾기
 //        long minSum = Long.MAX_VALUE;
 //        for(int i=0;i<n-2;i++){
 //            int left = i+1, right = n-1;
